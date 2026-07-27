@@ -7,6 +7,7 @@ from openai import OpenAI
 from gtts import gTTS
 import pygame
 import os
+import pywhatkit
 
 # pip install pocketsphinx
 
@@ -52,38 +53,45 @@ def aiProcess(command):
 
     return completion.choices[0].message.content
 
+import pywhatkit
+
 def processCommand(c):
     if "open google" in c.lower():
         webbrowser.open("https://google.com")
+
     elif "open facebook" in c.lower():
         webbrowser.open("https://facebook.com")
+
     elif "open youtube" in c.lower():
         webbrowser.open("https://youtube.com")
+
     elif "open linkedin" in c.lower():
         webbrowser.open("https://linkedin.com")
+
     elif c.lower().startswith("play"):
-        song = c.lower().split(" ")[1]
-        link = musicLibrary.music[song]
-        webbrowser.open(link)
+        song = c[5:].strip()
+
+        if song:
+            speak(f"Playing {song} on YouTube")
+            pywhatkit.playonyt(song)
+        else:
+            speak("Please tell me the song name.")
 
     elif "news" in c.lower():
-        r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsapi}")
+        r = requests.get(
+            f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsapi}"
+        )
+
         if r.status_code == 200:
-            # Parse the JSON response
             data = r.json()
-            
-            # Extract the articles
-            articles = data.get('articles', [])
-            
-            # Print the headlines
+            articles = data.get("articles", [])
+
             for article in articles:
-                speak(article['title'])
+                speak(article["title"])
 
     else:
-        # Let OpenAI handle the request
         output = aiProcess(c)
-        speak(output) 
-
+        speak(output)
 
 
 
