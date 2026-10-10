@@ -95,7 +95,7 @@ def processCommand(c):
 
 
 if __name__ == "__main__":
-    speak("Initializing Marcus....")
+    speak(" Marcus is ready to take commands....")
     while True:
         # Listen for the wake word "Marcus"
         # obtain audio from the microphone
