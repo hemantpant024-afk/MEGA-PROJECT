@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
-import musicLibrary
 import requests
 from openai import OpenAI
 from gtts import gTTS
@@ -95,11 +94,10 @@ def processCommand(c):
 
 
 
-
 if __name__ == "__main__":
-    speak("Initializing Jarvis....")
+    speak("Initializing Marcus....")
     while True:
-        # Listen for the wake word "Jarvis"
+        # Listen for the wake word "Marcus"
         # obtain audio from the microphone
         r = sr.Recognizer()
          
@@ -107,13 +105,13 @@ if __name__ == "__main__":
         try:
             with sr.Microphone() as source:
                 print("Listening...")
-                audio = r.listen(source, timeout=2, phrase_time_limit=1)
+                audio = r.listen(source, timeout=2, phrase_time_limit=2)
             word = r.recognize_google(audio)
-            if(word.lower() == "Jarvis"):
+            if(word.lower() == "Marcus"):
                 speak("Ya")
                 # Listen for command
                 with sr.Microphone() as source:
-                    print("Jarvis Active...")
+                    print("Marcus Active...")
                     audio = r.listen(source)
                     command = r.recognize_google(audio)
 

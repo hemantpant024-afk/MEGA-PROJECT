@@ -1,13 +1,13 @@
-# 🤖 MEGA-PROJECT - Jarvis AI Voice Assistant
+# 🤖 MEGA-PROJECT - Marcus AI Voice Assistant
 
-A Python-based AI Voice Assistant inspired by **Jarvis** from Iron Man. It can recognize voice commands, open websites, play songs on YouTube, read the latest news, and answer questions using OpenAI.
+A Python-based AI Voice Assistant inspired by **marcus** from Iron Man. It can recognize voice commands, open websites, play songs on YouTube, read the latest news, and answer questions using OpenAI.
 
 ---
 
 ## ✨ Features
 
 - 🎤 Voice Recognition
-- 🤖 Wake Word Detection ("Jarvis")
+- 🤖 Wake Word Detection ("Marcus")
 - 🌐 Open Websites
   - Google
   - YouTube
@@ -74,7 +74,7 @@ python main.py
 ## 🗣️ Example Commands
 
 ```
-Jarvis
+Marcus
 
 Open Google
 
